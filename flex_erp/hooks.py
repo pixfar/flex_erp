@@ -153,6 +153,9 @@ app_license = "MIT"
 # Overriding Methods
 # ------------------------------
 #
+override_whitelisted_methods = {
+    "frappe.www.login.login": "flex_erp.www.login"
+}
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "flex_erp.event.get_events"
 # }
