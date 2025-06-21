@@ -10,6 +10,12 @@
 {% endblock %}
 
 {% block page_content %}
+
+{% if redirect_after_login %}
+<script>
+  window.location.href = "/app";
+</script>
+{% endif %}
   <!-- N A V B A R -->
   <nav class="navbar navbar-default navbar-expand-lg fixed-top custom-navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,19 +28,16 @@
       	<img src="/assets/flex_erp/images/pixfar.png" class="img-fluid nav-logo-desktop" alt="Company Logo">
         <ul class="navbar-nav ml-auto nav-right" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
           <li class="nav-item nav-custom-link">
-            <a class="nav-link" href="index.html">Home <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
+            <a class="nav-link" href="/">Home <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
           </li>
           <li class="nav-item nav-custom-link">
-            <a class="nav-link" href="#marketing">Features <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
-          </li>
-          <li class="nav-item nav-custom-link">
-            <a class="nav-link" href="#testimonials">Testimonials <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
+            <a class="nav-link" href="#features">Features <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
           </li>
           <li class="nav-item nav-custom-link">
             <a class="nav-link" href="#pricing">Pricing <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
           </li>
           <li class="nav-item nav-custom-link btn-demo-trial">
-            <a class="nav-link" href="#">Try for Free <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
+            <a class="nav-link" href="#try-for-free">Try for Free <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
           </li>
         </ul>
       </div>
@@ -64,14 +67,14 @@
   <!-- E N D  H E R O -->
 
   <!-- E N D  M A R K E T I N G -->
-  <section id="marketing">
+  <section id="features">
     <div class="container">
       <div class="row">
         <div class="col-md-5">
           <div class="content-box">
             <h2>Simplify, Automate, and Grow</h2>
             <p>Streamline your operations, automate workflows, and manage seamlessly, empowering your business to boost profitability, increase efficiency, and reduce operational costs in real time. Enjoy headache-free business management so you can focus on growth, strategy, and what matters most.</p>
-            <a href="#" class="btn btn-regular">Start Free Trial</a>
+            <a href="#try-for-free" class="btn btn-regular">Start Free Trial</a>
           </div>
         </div>
         <div class="col-md-7">
@@ -107,7 +110,7 @@
               <li><i class="icon ion-md-checkmark-circle-outline demo"></i>Experience real business scenarios without paying a dime - <span class="demo">¡Explore Without Limits!</span></li>
             </ul>
             <div class="text-center">
-              <a href="#" class="btn btn-demo">Demo version</a>
+              <a href="#try-for-free" class="btn btn-demo">Demo version</a>
             </div>
           </div>
         </div>
@@ -129,7 +132,7 @@
               <li><i class="icon ion-md-checkmark-circle-outline"></i>Regular Product Updates - <span>¡Built for Small Business Success!</span></li>
             </ul>
             <div class="text-center">
-              <a href="#" class="btn btn-buy">Buy now</a>
+              <a href="https://calendly.com/pixfar-quick-meeting/30min" class="btn btn-buy">BOOK A MEETING</a>
             </div>
           </div>
         </div>
@@ -151,7 +154,7 @@
               
             </ul>
             <div class="text-center">
-              <a href="#" class="btn btn-buy">Buy now</a>
+              <a href="#" class="btn btn-buy">BOOK A MEETING</a>
             </div>
           </div>
         </div>
@@ -160,56 +163,59 @@
   </section>
   <!-- E N D  P R I C I N G -->
 
+  <!-- Login -->
+  <section id="try-for-free">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <video autoplay loop class="img-fluid" muted playsinline>
+            <source src="/assets/flex_erp/images/animation.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="col-md-7 content-box hero-content">
+            <div class="login-box login-container">
+                <h2>Let's you sign in</h2>
+                <form method="POST">
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="usr" class="form-control" required value="demo@pixfar.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="pwd" class="form-control" required value="1_zeXcGa-}u?">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-regular">Login</button>
+                  </div>
+                </form>
+                {% if message %}
+                <p class="error-message">{{ message }}</p>
+                {% endif %}
+                <!-- <p class="text-center">
+                  <a href="/forgot-password">Forgot Password?</a>
+                </p>
+                <p class="text-center">
+                  Don't have an account? <a href="/register">Register here</a>
+                </p> -->
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--  F O O T E R  -->
   <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <h5>Seo Ranking</h5>
-          <ul>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Affiliate Program</a></li>
-            <li><a href="#">Developer API</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Video Tutorials</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>Main Tools</h5>
-          <ul>
-            <li><a href="#">Rank Tracker</a></li>
-            <li><a href="#">Backlink Checker</a></li>
-            <li><a href="#">Keyword Generator</a></li>
-            <li><a href="#">Serp Checker</a></li>
-            <li><a href="#">Site Audit</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>Blog</h5>
-          <ul>
-            <li><a href="#">Get High Quality Backlinks</a></li>
-            <li><a href="#">Top Google Searches</a></li>
-            <li><a href="#">Avoid Google Penalties</a></li>
-            <li><a href="#">White Hat SEO Tips</a></li>
-            <li><a href="#">Google Trends</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>Company</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque, tortor nec mattis feugiat, velit purus euismod odio, quis vulputate velit urna.</p>
-          <p><a href="mailto:sales@theseocompany.com" class="external-links">sales@theseocompany.com</a></p>
-        </div>
-      </div> 
-      <div class="divider"></div>
+      <!-- <div class="divider"></div> -->
       <div class="row">
         <div class="col-md-6 col-xs-12">
-            <a href="#"><i class="icon ion-logo-facebook"></i></a>
-            <a href="#"><i class="icon ion-logo-instagram"></i></a>
-            <a href="#"><i class="icon ion-logo-twitter"></i></a>
-            <a href="#"><i class="icon ion-logo-youtube"></i></a>
+            <a href="https://www.facebook.com/pixfarbd"><i class="icon ion-logo-facebook"></i></a>
+            <a href="https://github.com/pixfar"><i class="icon ion-logo-github"></i></a>
+            <a href="https://www.youtube.com/@pixfar"><i class="icon ion-logo-youtube"></i></a>
           </div>
           <div class="col-md-6 col-xs-12">
-            <small>2018 &copy; All rights reserved. Made by <a href="http://templune.com/" target="blank" class="external-links">Templune</a></small>
+            <small>Copyright &copy; 2025 - All rights reserved by Pixfar</small>
           </div>
       </div>
     </div>
